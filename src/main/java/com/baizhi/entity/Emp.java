@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -21,5 +22,6 @@ public class Emp implements Serializable{
     private Double salary;
     private Integer age;
     @JSONField(format = "yyyy-MM-dd")
+    @Column(name = "bir")
     private Date bir;
 }
