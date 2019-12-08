@@ -51,7 +51,6 @@ public class EmpServiceImpl implements EmpService {
             e.printStackTrace();
             map.put("status", -200);
             map.put("message", "查询失败");
-            System.out.println("sdasdfsadfasdf");
         }
         return map;
     }
@@ -75,15 +74,29 @@ public class EmpServiceImpl implements EmpService {
     public Map add(Emp emp) {
         Map map = new HashMap();
         try {
-
+            empDao.insertSelective(emp);
+            map.put("status", 200);
+            map.put("message", "添加成功");
         } catch (Exception e) {
             e.printStackTrace();
+            map.put("status", -200);
+            map.put("message", "添加失败");
         }
-        return null;
+        return map;
     }
 
     @Override
     public Map update(Emp emp) {
-        return null;
+        Map map = new HashMap();
+        try {
+            empDao.updateByPrimaryKeySelective(emp);
+            map.put("status", 200);
+            map.put("message", "修改成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("status", -200);
+            map.put("message", "修改失败");
+        }
+        return map;
     }
 }
