@@ -57,11 +57,27 @@ public class EmpServiceImpl implements EmpService {
 
     @Override
     public Map delete(String id) {
-        return null;
+        Map map = new HashMap();
+        try {
+            empDao.deleteByPrimaryKey(id);
+            map.put("status", 200);
+            map.put("message", "删除成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("status", -200);
+            map.put("message", "删除失败");
+        }
+        return map;
     }
 
     @Override
     public Map add(Emp emp) {
+        Map map = new HashMap();
+        try {
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
