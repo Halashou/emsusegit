@@ -1,12 +1,21 @@
 package com.baizhi.service;
 
 import com.baizhi.entity.Emp;
-import java.util.Map;
 
+import java.util.List;
+
+/**
+ * @author: DarkSunrise
+ * @date: 2019/10/24  21:27
+ */
 public interface EmpService {
-    Map findAll();
-    Map findOne(String id);
-    Map delete(String id);
-    Map add(Emp emp);
-    Map update(Emp emp);
+    List<Emp> findAll();
+
+    Emp findOne(String id);
+
+    void add(Emp emp);
+
+    void delete(String id);
+
+    void update(Emp emp);
 }
